@@ -5,6 +5,7 @@ app = QApplication()
 
 loader = QUiLoader()
 window = loader.load('login.ui')
+
 window.show()
 
 app.exec()

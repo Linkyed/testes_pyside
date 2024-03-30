@@ -3,7 +3,11 @@ from PySide6.QtGui import QFont, QAction
 from PySide6.QtCore import Qt
 from qdarktheme import load_stylesheet
 
-
+def criarBotao(texto:str, font:QFont, layout):
+    botao = QPushButton(texto)
+    botao.setFont(font)
+    layout.addWidget(botao)
+    return botao
 
 class Window (QMainWindow):
     def __init__(self):
@@ -25,10 +29,8 @@ class Window (QMainWindow):
         self.label.setAlignment(Qt.AlignCenter)
         layout.addWidget(self.label)
 
-        botao = QPushButton('Aumentar numero')
-        botao.setFont(font)
+        botao = criarBotao('Aumentar', font, layout)
         botao.clicked.connect(self.printTerminal)
-        layout.addWidget(botao)
 
         base.setLayout(layout)
         self.setCentralWidget(base)
